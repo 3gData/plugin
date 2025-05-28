@@ -1,0 +1,63 @@
+{
+    "name": "rbx-framework-autocomplete",
+    "displayName": "Roblox Framework Autocomplete",
+    "description": "Provides autocompletion for Framework services using auto. prefix",
+    "publisher": "your-name",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:lua"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "languages": [
+            {
+                "id": "lua",
+                "extensions": [
+                    ".lua"
+                ]
+            }
+        ],
+        "commands": [
+            {
+                "command": "framework-completion.showOutput",
+                "title": "Framework Completion: Show Debug Output"
+            },
+            {
+                "command": "framework-completion.rescan",
+                "title": "Framework Completion: Rescan Modules"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "package": "npx @vscode/vsce package"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yourusername/rbx-framework-autocomplete"
+    },
+    "keywords": [
+        "roblox",
+        "lua",
+        "autocomplete",
+        "framework"
+    ],
+    "devDependencies": {
+        "@types/node": "^22.15.23",
+        "typescript": "^4.9.5",
+        "vscode": "^1.1.37",
+        "@vscode/vsce": "^2.15.0"
+    },
+    "dependencies": {
+        "vsce": "^2.15.0"
+    }
+}

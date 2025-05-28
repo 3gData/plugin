@@ -191,7 +191,7 @@ function createCompletionItem(def: ModuleDef, position: vscode.Position, documen
 
 /**
  * Build the three edits:
- * 1) Insert `local FooType = typeof(require(...))` after local Framework=...
+ * 1) Insert `local FooType = typeof(require(...))` after local FrameworkObject=...
  * 2) Insert `local Foo: FooType`
  * 3) Insert `Foo = Framework.<folder>.Foo` after module.Init()
  */
@@ -203,10 +203,10 @@ function makeAdditionalEdits(
   const edits: vscode.TextEdit[] = [];
   const text = doc.getText().split(/\r?\n/);
 
-  // 1) find "local Framework =" line
+  // 1) find "local FrameworkObject =" line
   let topLine = 0;
   for (let i = 0; i < text.length; i++) {
-    if (/^\s*local\s+Framework\s*=/.test(text[i])) {
+    if (/^\s*local\s+FrameworkObject\s*=/.test(text[i])) {
       topLine = i;
       break;
     }

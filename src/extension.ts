@@ -216,7 +216,7 @@ function makeAdditionalEdits(
   const typePath = def.subFolder ? `FrameworkObject.${def.subFolder}.${def.fullName.replace(/\.lua$/, '')}` : `FrameworkObject.${def.fullName.replace(/\.lua$/, '')}`;
   
   // insert type alias + typed local
-  const aliasLine = `local ${def.name}Type = typeof(require(${typePath}))`;
+  const aliasLine = `type ${def.name}Type = typeof(require(${typePath}))`;
   const localLine = `local ${def.name}: ${def.name}Type`;
   edits.push(vscode.TextEdit.insert(
     new vscode.Position(topLine + 1, 0),
